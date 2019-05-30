@@ -6,23 +6,34 @@
     <title>NibbleNeighbor!</title>
     <style>
       .hero {
-          background: url(public/assets/images/joseph-gonzalez-176749-unsplash.jpg) center / cover;
+          background: url(../public/assets/images/steak.jpg) center / cover;
       }
       .field {
           width: 100%;
           
       }
+      #bigHeader {
+        font-family: 'Caveat', cursive;
+        font-weight: bold;
+      }
+      #titles {
+        font-family: 'Oswald', sans-serif;
+      }
+      
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Oswald&display=swap" rel="stylesheet">
+
   </head>
   <body>
+    <section class="hero is-fullheight">
     <!--Big Ol Header and Info-->
-    <h1 class="is-size-1 has-text-centered"><strong>Let NibbleNeighbor blah blah blah!!!</strong></h1>
-        <p class="has-text-centered">Paragraph saying how to use the app.  Few lines of text, no big deal here.</p>    
+    <h1 id=bigHeader class="is-size-1 has-text-centered has-text-warning has-background-grey-darker">Let NibbleNeighbor Do the Work for You!!!</h1>
+        <p id=titles class="has-text-centered has-text-light is-size-3 has-background-black-bis">Just Use the Input Fields to Set What You Want Included in Your Desired Recipe, Then Your Friendly Neighbor Will Help You the Rest of the Way!</p>    
     <!--Start of our input fields-->
-    <h2 class="title is-3 has-text-centered">Protein</h2>
+    <h2 id=titles class="title is-3 has-text-centered has-text-white">Protein</h2>
         <div class="field has-addons has-addons-centered">
                 <div class="control">
                   <div class="select is-large">
@@ -36,11 +47,11 @@
                   </div>
                 </div>
                 <div class="control">
-                  <button type="submit" class="button is-primary is-large">Choose Protein</button>
+                  <button type="submit" class="button is-success is-large">Choose Protein</button>
                 </div>
               </div>
 <!--Diet-->
-<h3 class="title is-3 has-text-centered">Diet</h3>
+<h3 id=titles class="title is-3 has-text-centered has-text-white">Diet</h3>
         <div class="field has-addons has-addons-centered">
                 <div class="control">
                   <div class="select is-large">
@@ -55,11 +66,11 @@
                   </div>
                 </div>
                 <div class="control">
-                  <button type="submit" class="button is-primary is-large">Choose Diet Option</button>
+                  <button type="submit" class="button is-warning is-large">Choose Diet Option</button>
                 </div>
               </div>
 <!--health--> 
-<h3 class="title is-3 has-text-centered">Health</h3>
+<h3 id=titles class="title is-3 has-text-centered has-text-white">Health</h3>
         <div class="field has-addons has-addons-centered">
                 <div class="control">
                   <div class="select is-large">
@@ -82,11 +93,11 @@
                   </div>
                 </div>
                 <div class="control">
-                  <button type="submit" class="button is-primary is-large">Choose Health Option</button>
+                  <button type="submit" class="button is-link is-large">Choose Health Option</button>
                 </div>
               </div>
 <!--Calories--> 
-<h3 class="title is-3 has-text-centered">Calorie Range</h3>
+<h3 id=titles class="title is-3 has-text-centered has-text-white">Calorie Range</h3>
         <div class="field has-addons has-addons-centered">
                 <div class="control">
                   <div class="select is-large">
@@ -101,20 +112,20 @@
                   </div>
                 </div>
                 <div class="control">
-                  <button type="submit" class="button is-primary is-large">Choose Calorie Range</button>
+                  <button type="submit" class="button is-danger is-large">Choose Calorie Range</button>
                 </div>
               </div>
 <!--Exclusions from Recipe-->    
-<h3 class="title is-3 has-text-centered">Exclusions</h3>
+<h3 id=titles class="title is-3 has-text-centered has-text-white">Exclusions</h3>
 <div class="container">  
 <div class="field is-horizontal">
         <div class="field-label is-large">
-          <label class="label">Exclusions</label>
+          <label class="label has-text-white">Exclusions</label>
         </div>
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input is-large" type="text" placeholder="This stuff is gross, don't put me in the recipe">
+              <input class="input is-large" type="text" placeholder="Gross Stuff Here">
             </div>
           </div>
         </div>
@@ -128,5 +139,6 @@
             </div>
             <button class="modal-close is-large" aria-label="close"></button>
           </div>
+  </section>
   </body>
 </html>
