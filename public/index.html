@@ -22,22 +22,26 @@
       
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Caveat|Oswald&display=swap" rel="stylesheet">
+    
+
 
   </head>
   <body>
     <section class="hero is-fullheight">
     <!--Big Ol Header and Info-->
     <h1 id=bigHeader class="is-size-1 has-text-centered has-text-warning has-background-grey-darker">Let NibbleNeighbor Do the Work for You!!!</h1>
-        <p id=titles class="has-text-centered has-text-light is-size-3 has-background-black-bis">Just Use the Input Fields to Set What You Want Included in Your Desired Recipe, Then Your Friendly Neighbor Will Help You the Rest of the Way!</p>    
+        <p id=titles class="has-text-centered has-text-light is-size-3 has-background-black-bis">Just Use the Input Fields to Set What You Want Included in Your Desired Recipe, Then Your Friendly Neighbor Will Help You the Rest of the Way!</p>  
+        <br>  
     <!--Start of our input fields-->
     <h2 id=titles class="title is-3 has-text-centered has-text-white">Protein</h2>
         <div class="field has-addons has-addons-centered">
                 <div class="control">
                   <div class="select is-large">
                     <select name="protein">
+                      <option value="">Protein</option>
                       <option value="chicken">Chicken</option>
                       <option value="beef">Beef</option>
                       <option value="pork">Pork</option>
@@ -47,7 +51,8 @@
                   </div>
                 </div>
                 <div class="control">
-                  <button type="submit" class="button is-success is-large">Choose Protein</button>
+                  <button type="submit" class="button is-success is-large">
+                    <span><i class="fa fa-drumstick-bite"></i></span>Choose Protein</button>
                 </div>
               </div>
 <!--Diet-->
@@ -56,6 +61,7 @@
                 <div class="control">
                   <div class="select is-large">
                     <select name="diet">
+                      <option value="">Any Diet</option>
                       <option value="balanced">Balanced</option>
                       <option value="high-protein">High-Protein</option>
                       <option value="high-fiber">High-Fiber</option>
@@ -66,7 +72,8 @@
                   </div>
                 </div>
                 <div class="control">
-                  <button type="submit" class="button is-warning is-large">Choose Diet Option</button>
+                  <button type="submit" class="button is-warning is-large">
+                    <span><i class="fa fa-carrot"></i></span>Choose Diet Option</button>
                 </div>
               </div>
 <!--health--> 
@@ -75,6 +82,7 @@
                 <div class="control">
                   <div class="select is-large">
                     <select name="health">
+                      <option value="">None</option>
                       <option value="vegan">Vegan</option>
                       <option value="vegetarian">Vegetarian</option>
                       <option value="paleo">Paleo</option>
@@ -93,7 +101,8 @@
                   </div>
                 </div>
                 <div class="control">
-                  <button type="submit" class="button is-link is-large">Choose Health Option</button>
+                  <button type="submit" class="button is-link is-large">
+                    <span><i class="fas fa-heartbeat"></i></span>Choose Health Option</button>
                 </div>
               </div>
 <!--Calories--> 
@@ -102,6 +111,7 @@
                 <div class="control">
                   <div class="select is-large">
                     <select name="calorie">
+                      <option value="">Any Range</option>
                       <option value="placeholder">100-500</option>
                       <option value="placeholder">500-800</option>
                       <option value="placeholder">800-1000</option>
@@ -112,7 +122,8 @@
                   </div>
                 </div>
                 <div class="control">
-                  <button type="submit" class="button is-danger is-large">Choose Calorie Range</button>
+                  <button type="submit" class="button is-danger is-large">
+                    <span><i class="fas fa-hamburger"></i></span>Choose Calorie Range</button>
                 </div>
               </div>
 <!--Exclusions from Recipe-->    
@@ -140,11 +151,22 @@
             <button class="modal-close is-large" aria-label="close"></button>
           </div>
           <br>
+          <!--Button to Get Recipes-->
+         <div class="has-text-centered">
+           <a class="button is-large is-success is-rounded">
+             <span class="icon">
+              <i class="fas fa-utensils"></i>
+             </span>
+             <span>Get My Recipe!</span>
+           </a>
+         </div>
+         <br>
+
           <!--Footer-->
-    <footer class="footer">
+    <footer class="footer has-background-grey-darker">
             <div class="content has-text-centered">
-              <p class="has-text-centered">
-                <strong>NibbleNeighbor</strong> created by: Joshua Zills, Christopher Nyberg, Bogac Subuncu, Roderick Breland
+              <p class="has-text-centered has-text-warning has-background-grey-darker has-text-weight-bold">
+                NibbleNeighbor created by: Joshua Zills, Christopher Nyberg, Bogac Subuncu, Roderick Breland
                 <br>
                 2019
               </p>
