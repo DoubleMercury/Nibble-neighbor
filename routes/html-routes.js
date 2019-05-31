@@ -16,12 +16,14 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
- // app.get("/reserve", function(req, res) {
-  //  res.sendFile(path.join(__dirname, "../public/user.html"));
-  //});
- // app.get("/:user", function(req, res) {
-  //  var chosen = req.params.character;
-  
+  app.get("/search", function(req, res) {
+   res.sendFile(path.join(__dirname, "../public/search.html"));
+  });
+
+  app.get("/:user", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/user.html"));
+    var chosen = req.params.character;
+  });
   // If no matching route is found default to home
   app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
