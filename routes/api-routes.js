@@ -14,7 +14,7 @@ module.exports = function(app) {
   });
 
 
-  app.post("/api/ingredients", function(req, res) {
+  app.post("/api/", function(req, res) {
  
     if (ingredientsData.length < 5) {
       ingredientsData.push(req.body);
