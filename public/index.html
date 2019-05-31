@@ -1,177 +1,90 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>NibbleNeighbor!</title>
-    <style>
-      .hero {
-          background: url(../public/assets/images/steak.jpg) center / cover;
-      }
-      .field {
-          width: 100%;
-          
-      }
-      #bigHeader {
-        font-family: 'Caveat', cursive;
-        font-weight: bold;
-      }
-      #titles {
-        font-family: 'Oswald', sans-serif;
-      }
-      
-    </style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Howdy, Neighbor!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Caveat|Oswald&display=swap" rel="stylesheet">
-    
+
+    <style>
+     .hero {
+          background: url(../public/assets/images/eggs.jpg) center / cover;
+      }
+    </style>
+
+</head>
+<body>
+
+        <nav class="navbar is-success is-size-2" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                  <a class="navbar-item" href="https://bulma.io">
+                    <img src="../public/assets/images/food-icon.jpg" width="100" height="28">
+                  </a>
+              
+                  <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                  </a>
+                </div>
+              
+                <div id="navbarBasicExample" class="navbar-menu">
+                  <div class="navbar-start">
+                    <a class="navbar-item">
+                      Home
+                    </a>
+              
+                    <a class="navbar-item">
+                      Recipe Search
+                    </a>
+              
+                    <div class="navbar-item has-dropdown is-hoverable">
+                      <a class="navbar-link">
+                        More
+                      </a>
+              
+                      <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                          About
+                        </a>
+                        <a class="navbar-item">
+                          User Profile
+                        </a>
+                        <a class="navbar-item">
+                          Contact
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">
+                          Report an issue
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+              
+                  <div class="navbar-end">
+                    <div class="navbar-item">
+                      <div class="buttons">
+                        <a class="button is-warning is-inverted">
+                          <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-light">
+                          Log in
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+<section class="hero is-fullheight">
 
 
-  </head>
-  <body>
-    <section class="hero is-fullheight">
-    <!--Big Ol Header and Info-->
-    <h1 id=bigHeader class="is-size-1 has-text-centered has-text-warning has-background-grey-darker">Let NibbleNeighbor Do the Work for You!!!</h1>
-        <p id=titles class="has-text-centered has-text-light is-size-3 has-background-black-bis">Just Use the Input Fields to Set What You Want Included in Your Desired Recipe, Then Your Friendly Neighbor Will Help You the Rest of the Way!</p>  
-        <br>  
-    <!--Start of our input fields-->
-    <h2 id=titles class="title is-3 has-text-centered has-text-white">Protein</h2>
-        <div class="field has-addons has-addons-centered">
-                <div class="control">
-                  <div class="select is-large">
-                    <select name="protein">
-                      <option value="">Protein</option>
-                      <option value="chicken">Chicken</option>
-                      <option value="beef">Beef</option>
-                      <option value="pork">Pork</option>
-                      <option value="tofu">Tofu</option>
-                      <option value="fish">Fish</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="control">
-                  <button type="submit" class="button is-success is-large">
-                    <span><i class="fa fa-drumstick-bite"></i></span>Choose Protein</button>
-                </div>
-              </div>
-<!--Diet-->
-<h3 id=titles class="title is-3 has-text-centered has-text-white">Diet</h3>
-        <div class="field has-addons has-addons-centered">
-                <div class="control">
-                  <div class="select is-large">
-                    <select name="diet">
-                      <option value="">Any Diet</option>
-                      <option value="balanced">Balanced</option>
-                      <option value="high-protein">High-Protein</option>
-                      <option value="high-fiber">High-Fiber</option>
-                      <option value="low-fat">Low-fat</option>
-                      <option value="low-carb">Low-carb</option>
-                      <option value="low-sodium">Low-sodium</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="control">
-                  <button type="submit" class="button is-warning is-large">
-                    <span><i class="fa fa-carrot"></i></span>Choose Diet Option</button>
-                </div>
-              </div>
-<!--health--> 
-<h3 id=titles class="title is-3 has-text-centered has-text-white">Health</h3>
-        <div class="field has-addons has-addons-centered">
-                <div class="control">
-                  <div class="select is-large">
-                    <select name="health">
-                      <option value="">None</option>
-                      <option value="vegan">Vegan</option>
-                      <option value="vegetarian">Vegetarian</option>
-                      <option value="paleo">Paleo</option>
-                      <option value="dairy-free">Dairy Free</option>
-                      <option value="gluten-free">Gluten Free</option>
-                      <option value="wheat-free">Wheat Free</option>
-                      <option value="fat-free">Fat Free</option>
-                      <option value="low-sugar">Low Sugar</option>
-                      <option value="egg-free">Egg Free</option>
-                      <option value="peanut-free">Peanut Free</option>
-                      <option value="tree-nut-free">Tree Nut Free</option>
-                      <option value="soy-free">Soy Free</option>
-                      <option value="fish-free">Fish Free</option>
-                      <option value="shellfish-free">Shellfish Free</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="control">
-                  <button type="submit" class="button is-link is-large">
-                    <span><i class="fas fa-heartbeat"></i></span>Choose Health Option</button>
-                </div>
-              </div>
-<!--Calories--> 
-<h3 id=titles class="title is-3 has-text-centered has-text-white">Calorie Range</h3>
-        <div class="field has-addons has-addons-centered">
-                <div class="control">
-                  <div class="select is-large">
-                    <select name="calorie">
-                      <option value="">Any Range</option>
-                      <option value="placeholder">100-500</option>
-                      <option value="placeholder">500-800</option>
-                      <option value="placeholder">800-1000</option>
-                      <option value="placeholder">1000-1200</option>
-                      <option value="placeholder">1200-1500</option>
-                      <option value="placeholder">1500-2000</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="control">
-                  <button type="submit" class="button is-danger is-large">
-                    <span><i class="fas fa-hamburger"></i></span>Choose Calorie Range</button>
-                </div>
-              </div>
-<!--Exclusions from Recipe-->    
-<h3 id=titles class="title is-3 has-text-centered has-text-white">Exclusions</h3>
-<div class="container">  
-<div class="field is-horizontal">
-        <div class="field-label is-large">
-          <label class="label has-text-white">Exclusions</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <div class="control">
-              <input class="input is-large" type="text" placeholder="Gross Stuff Here">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>      
-    <!-- Modal element-->
-    <div class="modal">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-              <!-- Any other Bulma elements you want -->
-            </div>
-            <button class="modal-close is-large" aria-label="close"></button>
-          </div>
-          <br>
-          <!--Button to Get Recipes-->
-         <div class="has-text-centered">
-           <a class="button is-large is-success is-rounded">
-             <span class="icon">
-              <i class="fas fa-utensils"></i>
-             </span>
-             <span>Get My Recipe!</span>
-           </a>
-         </div>
-         <br>
 
-          <!--Footer-->
-    <footer class="footer has-background-grey-darker">
-            <div class="content has-text-centered">
-              <p class="has-text-centered has-text-warning has-background-grey-darker has-text-weight-bold">
-                NibbleNeighbor created by: Joshua Zills, Christopher Nyberg, Bogac Subuncu, Roderick Breland
-                <br>
-                2019
-              </p>
-            </div>
-          </footer>
-  </section>
-  </body>
+
+
+</section>    
+</body>
 </html>
