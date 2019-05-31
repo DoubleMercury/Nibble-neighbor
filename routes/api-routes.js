@@ -36,3 +36,10 @@ module.exports = function(app) {
     res.json({ ok: true });
   });
 };
+
+
+
+
+"api/users"
+
+"api/users/:user"
