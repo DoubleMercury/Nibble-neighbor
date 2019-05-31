@@ -9,13 +9,14 @@ module.exports = function(sequelize, DataTypes){
             }
         },
         name:{
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false
         },
-        age:{
-            type: DataTypes.INTEGER
-        },
-        weight:{
-            type: DataTypes.INTEGER
+        email:{
+            type: DataTypes.STRING,
+            validate:{
+                isEmail: true
+            }
         }
     });
 
