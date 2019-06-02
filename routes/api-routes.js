@@ -1,31 +1,37 @@
-const ingredientsData = require("../data/ingredientsData");
-const recipeData = require("../data/recipeData");
+const dbFunctions = require('../functions/dbfunctions')
 
 module.exports = function(app) {
   // API GET Requests
  
 
-  app.get("/api/ingredients", function(req, res) {
-    res.json(ingredientsData);
-  });
 
   app.get("/api/recipe", function(req, res) {
     res.json(recipeData);
   });
 
 
-  app.post("/api/", function(req, res) {
- 
-    if (ingredientsData.length < 5) {
-      ingredientsData.push(req.body);
-      res.json(true);
-    }
-    else {
-      recipeData.push(req.body);
-      res.json(false);
-    }
+  app.post("/api/newuser", function(req, res) {
+    
+    //console.log(dbFunctions.addUser("MikeAndIke", "Micheal", "micheal@gmail.com"));
+
+    res.end();
   });
 
+  app.post("/api/newrecipe", function(req,res){
+    //console.log(dbFunctions.addRecipe("Hot Dog", "www.hotdogimage.com", "www.howtomakeahotdog.com", 300, 1));
+
+    res.end();
+  })
+
+  app.get("/api/getusers", function(req, res){
+
+    res.json(dbFunctions.getAllUsers());
+
+  })
+
+  app.get("/api/getAllUserRecipies", function(req,res){
+    res.json(dbFunctions.getAllUserRecipies(1));
+  });
 
 
   app.post("/api/clear", function(req, res) {
@@ -37,9 +43,3 @@ module.exports = function(app) {
   });
 };
 
-
-
-
-"api/users"
-
-"api/users/:user"
