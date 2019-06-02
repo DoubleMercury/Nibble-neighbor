@@ -1,36 +1,31 @@
-const dbFunctions = require('../functions/dbfunctions')
+const dbFunctions = require('../functions/dbfunctions.js');
+
 
 module.exports = function(app) {
   // API GET Requests
- 
-
-
-  app.get("/api/recipe", function(req, res) {
-    res.json(recipeData);
-  });
 
 
   app.post("/api/newuser", function(req, res) {
     
-    //console.log(dbFunctions.addUser("MikeAndIke", "Micheal", "micheal@gmail.com"));
+    dbFunctions.addUser(res, "MikeAndIke", "Micheal", "micheal@gmail.com");
 
-    res.end();
   });
 
   app.post("/api/newrecipe", function(req,res){
-    //console.log(dbFunctions.addRecipe("Hot Dog", "www.hotdogimage.com", "www.howtomakeahotdog.com", 300, 1));
 
-    res.end();
-  })
+    dbFunctions.addRecipe(res, "Hot Dog", "www.hotdogimage.com", "www.howtomakeahotdog.com", 300, 1);
+  });
 
   app.get("/api/getusers", function(req, res){
 
-    res.json(dbFunctions.getAllUsers());
+    dbFunctions.getAllUsers(res);
 
-  })
+  });
 
   app.get("/api/getAllUserRecipies", function(req,res){
-    res.json(dbFunctions.getAllUserRecipies(1));
+
+    dbFunctions.getAllUserRecipies(res, 1);
+
   });
 
 

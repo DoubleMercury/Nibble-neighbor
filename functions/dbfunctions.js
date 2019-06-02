@@ -1,17 +1,17 @@
 var db = require("../models");
 
-const addUser = function(username, name, email) {
+const addUser = function(res, username, name, email) {
     
     db.User.create({
         username: username,
         name : name,
         email : email
     }).then(function(dbUser){
-        return dbUser;
+        return res.json(dbUser);
     });
 }
 
-const addRecipe = function(label, image, url, calories, UserId){
+const addRecipe = function(res, label, image, url, calories, UserId){
     db.Recipe.create({
         label: label,
         image: image,
@@ -19,26 +19,26 @@ const addRecipe = function(label, image, url, calories, UserId){
         calories: calories,
         UserId: UserId
     }).then(function(dbRecipe){
-        console.log(dbRecipe);
-        return dbRecipe;
+        //console.log(dbRecipe);
+        return res.json(dbRecipe);
     })
 }
 
-const getAllUsers = function(){
+const getAllUsers = function(res){
 
     db.User.findAll().then(function(users){
-        console.log(users);
-        return users;
+        //console.log(users);
+        return res.json(users);
     })
 
 }
 
-const getAllUserRecipies = function(userId){
+const getAllUserRecipies = function(res, userId){
 
     db.Recipe.findAll({where : {UserId: userId}})
     .then(function(recipes){
-        console.log(recipes);
-        return recipes;
+        //console.log(recipes);
+        return res.json(recipes);
     });
 }
 
