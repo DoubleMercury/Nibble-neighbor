@@ -28,7 +28,7 @@
     
 </head>
 <body>
-   <section class = "hero is-fullheight">
+
         <nav>
             <nav class="navbar is-success is-size-2" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
@@ -80,10 +80,9 @@
                     <div class="navbar-item">
                       <div class="buttons">
                         <a class="button is-warning is-inverted">
-                          <strong>Sign up</strong>
+                          <strong>Sign out</strong>
                         </a>
-                        <a class="button is-light"id="">
-                          Log in
+                       
                         </a>
                       </div>
                     </div>
@@ -93,12 +92,19 @@
             </nav>
             <div class="header">
         <!-- <h1>${user's name displayed here}' saved recipe's page</h1> -->
-                
-            </div>
-  
+        
+            
+            <section class = "hero is-fullheight">
         <div class="main-content">
             <!-- rendered recipes -->
-           
+            <div class="has-text-centered">
+                <a class="button is-large is-success is-rounded">
+                  <span class="icon">
+                   <i class="fas fa-utensils"></i>
+                  </span>
+                  <span>New Recipe!</span>
+                </a>
+              </div>
          <script>  
          function createPost(id){
             $.ajax({
