@@ -9,6 +9,12 @@
     <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Caveat|Oswald&display=swap" rel="stylesheet">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous">
+    </script>
+    <!-- <script src="public/javascript/app.js" ></script> -->
 
     <style>
      .hero {
@@ -78,7 +84,7 @@
                         <a class="button is-warning is-inverted">
                           <strong>Sign up</strong>
                         </a>
-                        <a class="button is-light">
+                        <a class="button is-light" id="logInLink" data-target="logInModal">
                           Log in
                         </a>
                       </div>
@@ -148,6 +154,26 @@
         </a>
       </div>
 <br>
+
+<div class="modal" id="logInModal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Log In</p>
+        <button class="delete close-modal" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <form id="logInForm">
+        <label class="" id="logInInputLabel" for="logInInput">Enter email address: </label>
+          <input class="" id="logInInput" required>
+        </form>
+      </section>
+      <footer class="modal-card-foot">
+        <button type="submit" for="logInForm" class="button is-success" id="logInSubmitBtn">Log In</button>
+        <button class="button close-modal">Cancel</button>
+      </footer>
+    </div>
+  </div>
 <!--Footer-->
 <footer class="footer has-background-grey-darker">
         <div class="content has-text-centered">
@@ -160,6 +186,27 @@
           </p>
         </div>
       </footer>
-</section>    
+</section>
+
+<script>
+  $("#logInLink").on("click", (e) => {
+    e.preventDefault();
+    $("#logInModal").addClass("is-active");
+  });
+
+  $(".close-modal").on("click",(e) => {
+    e.preventDefault();
+    $("#logInModal").removeClass("is-active");
+  });
+
+  $("#logInSubmitBtn").on("click", (e) => {
+    e.preventDefault();
+    //check if email is in DB
+    //if not, error
+    //if yes, send to user page
+  });
+
+
+</script>
 </body>
 </html>
