@@ -19,9 +19,6 @@
       #titles {
         font-family: 'Oswald', sans-serif;
       }
-      .nohover {
-        pointer-events: none
-      }
       
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
@@ -100,6 +97,7 @@
         <p id=titles class="has-text-centered has-text-light is-size-3 has-background-black-bis">Just Use the Input Fields to Set What You Want Included in Your Desired Recipe, Then Your Friendly Neighbor Will Help You the Rest of the Way!</p>  
         <br>  
     <!--Start of our input fields-->
+    <!--Protein-->
     <h2 id=titles class="title is-3 has-text-centered has-text-white">Protein</h2>
         <div class="field has-addons has-addons-centered">
                 <div class="control">
@@ -215,7 +213,7 @@
             <button class="modal-close is-large" aria-label="close"></button>
           </div>
           <br>
-          <!--Button to Get Recipes-->
+    <!--Button to Get Recipes-->
          <div class="has-text-centered">
            <a id="submitBtn" class="button is-large is-success is-rounded">
              <span class="icon">
@@ -241,20 +239,6 @@
     
   
   </section>
-  <script>
-  $("#submitBtn").on("click", function(){
-console.log("clicked");
-const protein=$("#protein_id").val();
-console.log(protein);
-const diet=$("#diet_id").val();
-console.log(diet);
-const health=$("#health_id").val();
-console.log(health);
-const calorie=$("#calorie_id").val();
-console.log(calorie);
-const exclusions = $("#exclusions_id").val().trim().replace(' ', '-');
-console.log(exclusions)
-});
-  </script>
+  <script src="../public/assets/app.js"></script>
   </body>
 </html>
