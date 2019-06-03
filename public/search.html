@@ -19,6 +19,9 @@
       #titles {
         font-family: 'Oswald', sans-serif;
       }
+      .nohover {
+        pointer-events: none
+      }
       
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
@@ -101,7 +104,7 @@
         <div class="field has-addons has-addons-centered">
                 <div class="control">
                   <div class="select is-large">
-                    <select name="protein">
+                    <select id="protein_id" name="protein">
                       <option value="">Protein</option>
                       <option value="chicken">Chicken</option>
                       <option value="beef">Beef</option>
@@ -112,7 +115,7 @@
                   </div>
                 </div>
                 <div class="control">
-                  <button type="submit" class="button is-success is-large">
+                  <button type="submit" class="button is-success is-large is-hovered">
                     <span><i class="fa fa-drumstick-bite"></i></span>Choose Protein</button>
                 </div>
               </div>
@@ -121,7 +124,7 @@
         <div class="field has-addons has-addons-centered">
                 <div class="control">
                   <div class="select is-large">
-                    <select name="diet">
+                    <select id="diet_id" name="diet">
                       <option value="">Any Diet</option>
                       <option value="balanced">Balanced</option>
                       <option value="high-protein">High-Protein</option>
@@ -142,7 +145,7 @@
         <div class="field has-addons has-addons-centered">
                 <div class="control">
                   <div class="select is-large">
-                    <select name="health">
+                    <select id="health_id" name="health">
                       <option value="">None</option>
                       <option value="vegan">Vegan</option>
                       <option value="vegetarian">Vegetarian</option>
@@ -171,14 +174,14 @@
         <div class="field has-addons has-addons-centered">
                 <div class="control">
                   <div class="select is-large">
-                    <select name="calorie">
-                      <option value="">Any Range</option>
-                      <option value="placeholder">100-500</option>
-                      <option value="placeholder">500-800</option>
-                      <option value="placeholder">800-1000</option>
-                      <option value="placeholder">1000-1200</option>
-                      <option value="placeholder">1200-1500</option>
-                      <option value="placeholder">1500-2000</option>
+                    <select id="calorie_id" name="calorie">
+                      <option value="100+">Any Range</option>
+                      <option value="100-500">100-500</option>
+                      <option value="500-800">500-800</option>
+                      <option value="800-1000">800-1000</option>
+                      <option value="1000-1200">1000-1200</option>
+                      <option value="1200-1500">1200-1500</option>
+                      <option value="1500-2000">1500-2000</option>
                     </select>
                   </div>
                 </div>
@@ -197,7 +200,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input is-large" type="text" placeholder="Gross Stuff Here">
+              <input id="exclusions_id" class="input is-large" type="text" placeholder="Gross Stuff Here">
             </div>
           </div>
         </div>
@@ -214,7 +217,7 @@
           <br>
           <!--Button to Get Recipes-->
          <div class="has-text-centered">
-           <a class="button is-large is-success is-rounded">
+           <a id="submitBtn" class="button is-large is-success is-rounded">
              <span class="icon">
               <i class="fas fa-utensils"></i>
              </span>
@@ -235,6 +238,23 @@
               </p>
             </div>
           </footer>
+    
+  
   </section>
+  <script>
+  $("#submitBtn").on("click", function(){
+console.log("clicked");
+const protein=$("#protein_id").val();
+console.log(protein);
+const diet=$("#diet_id").val();
+console.log(diet);
+const health=$("#health_id").val();
+console.log(health);
+const calorie=$("#calorie_id").val();
+console.log(calorie);
+const exclusions = $("#exclusions_id").val().trim().replace(' ', '-');
+console.log(exclusions)
+});
+  </script>
   </body>
 </html>
