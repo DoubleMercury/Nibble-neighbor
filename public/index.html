@@ -191,7 +191,11 @@
 <script>
   $("#logInLink").on("click", (e) => {
     e.preventDefault();
-    $("#logInModal").addClass("is-active");
+    if(localStorage.getItem("userId")){
+     window.location.replace("/user"); 
+    }
+    else { $("#logInModal").addClass("is-active");
+  };
   });
 
   $(".close-modal").on("click",(e) => {
@@ -201,9 +205,22 @@
 
   $("#logInSubmitBtn").on("click", (e) => {
     e.preventDefault();
-    //check if email is in DB
-    //if not, error
-    //if yes, send to user page
+    $.get("/api/users", (data)=> {
+      console.log("Here");
+
+
+      let isUser = false;
+      let currentUser = $("#logInInput").val();
+      data.forEach(user => {
+        if(user.email === currentUser) {
+          isUser = true;
+          localStorage.setItem("userId", user.id);
+          window.location.replace("/user");
+          //sendPath("/users/:currentUser")
+        };
+      });
+      console.log(isUser);
+    });
   });
 
 
