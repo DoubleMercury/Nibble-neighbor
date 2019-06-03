@@ -82,7 +82,7 @@
                         <a class="button is-warning is-inverted">
                           <strong>Sign up</strong>
                         </a>
-                        <a class="button is-light">
+                        <a class="button is-light"id="">
                           Log in
                         </a>
                       </div>
@@ -102,7 +102,7 @@
          <script>  
          function createPost(id){
             $.ajax({
-                method: "https://developer.edamam.com/edamam-recipe-api",
+                method: GET  "https://developer.edamam.com/edamam-recipe-api",
               data: {
                   username: req.body.username
                   name: req.body.name
