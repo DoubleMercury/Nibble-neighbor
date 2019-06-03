@@ -23,7 +23,8 @@ module.exports = function(sequelize, DataTypes){
         Recipe.belongsTo(models.User,{
             foreignKey: {
                 allowNull: false
-            }
+            },
+            onDelete: "cascade"
         });
     };
 

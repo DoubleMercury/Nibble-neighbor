@@ -42,10 +42,35 @@ const getAllUserRecipes = function(res, userId){
     });
 }
 
+const deleteUser = function(res, UserId){
+    db.User.destroy({where:{id : UserId}})
+    .then(function(user){
+        return res.json(user);
+    }).catch(function(err) {
+        console.log("Error", err)
+    })
+}
+
+const deleteRecipe = function(res, recipeId){
+    db.Recipe.destroy({where:{id : recipeId}})
+    .then(function(recipe){
+        return res.json(recipe);
+    })
+}
+
+const getUser = function(res, UserId){
+    db.User.findOne({where:{id : UserId}})
+    .then(function(user){
+        return res.json(user);
+    });
+}
 
 module.exports = {
     addUser: addUser,
     addRecipe: addRecipe,
     getAllUsers: getAllUsers,
-    getAllUserRecipes: getAllUserRecipes
+    getAllUserRecipes: getAllUserRecipes,
+    deleteUser : deleteUser,
+    deleteRecipe : deleteRecipe,
+    getUser: getUser
 }
