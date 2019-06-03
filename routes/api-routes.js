@@ -4,37 +4,33 @@ const dbFunctions = require('../functions/dbfunctions.js');
 module.exports = function(app) {
   // API GET Requests
 
+  //addUser(res, username, name, email);
+  //addRecipe(res, label, image_url, recipe_url, calories, usersID);
+  //getAllUsers(res);
+  //getAllUserRecipes
 
   app.post("/api/newuser", function(req, res) {
     
-    dbFunctions.addUser(res, "MikeAndIke", "Micheal", "micheal@gmail.com");
+    dbFunctions.addUser(res, req.body.username, req.body.name, req.body.email);
 
   });
 
   app.post("/api/newrecipe", function(req,res){
 
-    dbFunctions.addRecipe(res, "Hot Dog", "www.hotdogimage.com", "www.howtomakeahotdog.com", 300, 1);
+    dbFunctions.addRecipe(res, req.body.label, req.body.image, req.body.url, req.body.calories, req.body.UserId);
   });
 
-  app.get("/api/getusers", function(req, res){
+  app.get("/api/users", function(req, res){
 
     dbFunctions.getAllUsers(res);
 
   });
 
-  app.get("/api/getAllUserRecipies", function(req,res){
+  app.get("/api/UserRecipes/:userdId", function(req,res){
 
-    dbFunctions.getAllUserRecipies(res, 1);
+    dbFunctions.getAllUserRecipes(res, req.params.userId);
 
   });
 
-
-  app.post("/api/clear", function(req, res) {
-    // Empty out the arrays of data
-    ingredientsData.length = 0;
-    recipeData.length = 0;
-
-    res.json({ ok: true });
-  });
 };
 

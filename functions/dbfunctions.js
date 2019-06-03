@@ -33,7 +33,7 @@ const getAllUsers = function(res){
 
 }
 
-const getAllUserRecipies = function(res, userId){
+const getAllUserRecipes = function(res, userId){
 
     db.Recipe.findAll({where : {UserId: userId}})
     .then(function(recipes){
@@ -47,5 +47,5 @@ module.exports = {
     addUser: addUser,
     addRecipe: addRecipe,
     getAllUsers: getAllUsers,
-    getAllUserRecipies: getAllUserRecipies
+    getAllUserRecipes: getAllUserRecipes
 }
