@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <style>
-         .hero {
-          background: url(../public/assets/images/bread.jpg) center / cover;
-      }
-      .field {
-          width: 100%;
-    
-      }
-      #bigHeader {
-        font-family: 'Caveat', cursive;
-        font-weight: bold;
-      }
-      #titles {
-        font-family: 'Oswald', sans-serif;
-      }
+        .hero {
+            background: url(../public/assets/images/bread.jpg) center / cover;
+        }
+
+        .field {
+            width: 100%;
+
+        }
+
+        #bigHeader {
+            font-family: 'Caveat', cursive;
+            font-weight: bold;
+        }
+
+        #titles {
+            font-family: 'Oswald', sans-serif;
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,111 +29,113 @@
     <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Caveat|Oswald&display=swap" rel="stylesheet">
-    
+
 </head>
+
 <body>
 
-        <nav>
-            <nav class="navbar is-success is-size-2" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-                  <a class="navbar-item" href="https://bulma.io">
+    <nav>
+        <nav class="navbar is-success is-size-2" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="https://bulma.io">
                     <img src="../public/assets/images/food-icon.jpg" width="100" height="28">
-                  </a>
- 
-                  <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                  </a>
-                </div>
- 
-                <div id="navbarBasicExample" class="navbar-menu">
-                  <div class="navbar-start">
-                    <a class="navbar-item">
-                      Home
-                    </a>
- 
-                    <a class="navbar-item">
-                      Recipe Search
-                    </a>
- 
-                    <div class="navbar-item has-dropdown is-hoverable">
-                      <a class="navbar-link">
-                        More
-                      </a>
- 
-                      <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                          About
-                        </a>
-                        <a class="navbar-item">
-                          User Profile
-                        </a>
-                        <a class="navbar-item">
-                          Contact
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                          Report an issue
-                        </a>
-                      </div>
-                    </div>
-                  </div>
- 
-                  <div class="navbar-end">
-                    <div class="navbar-item">
-                      <div class="buttons">
-                        <a class="button is-warning is-inverted">
-                          <strong>Sign out</strong>
-                        </a>
-                       
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </nav>
-            </nav>
-            <div class="header">
-        <!-- <h1>${user's name displayed here}' saved recipe's page</h1> -->
-        
-            
-            <section class = "hero is-fullheight">
-        <div class="main-content">
-            <!-- rendered recipes -->
-            <div class="has-text-centered">
-                <a class="button is-large is-success is-rounded">
-                  <span class="icon">
-                   <i class="fas fa-utensils"></i>
-                  </span>
-                  <span>New Recipe!</span>
                 </a>
-              </div>
-         <script>  
-         function createPost(id){
-            $.ajax({
-                method: GET  "https://developer.edamam.com/edamam-recipe-api",
-              data: {
-                  username: req.body.username
-                  name: req.body.name
-                  email: req.body.email
-              }
-            })
-                .then(function() {
-                    getPosts(postCategorySelect.val());
-                });
-            }
-        </script> 
-        </div>
-        
-        <footer>
-        
-        
-        </footer>
+
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item">
+                        Home
+                    </a>
+
+                    <a class="navbar-item">
+                        Recipe Search
+                    </a>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            More
+                        </a>
+
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item">
+                                About
+                            </a>
+                            <a class="navbar-item">
+                                User Profile
+                            </a>
+                            <a class="navbar-item">
+                                Contact
+                            </a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item">
+                                Report an issue
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-warning is-inverted">
+                                <strong>Sign out</strong>
+                            </a>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </nav>
+    <div class="header">
+        <!-- <h1>${user's name displayed here}' saved recipe's page</h1> -->
+
+
+        <section class="hero is-fullheight">
+            <div class="main-content">
+                <!-- rendered recipes -->
+                <div class="has-text-centered">
+                    <a class="button is-large is-success is-rounded">
+                        <span class="icon">
+                            <i class="fas fa-utensils"></i>
+                        </span>
+                        <span>New Recipe!</span>
+                    </a>
+                </div>
+                <script>
+                    function createPost(id) {
+                        $.ajax({
+                            method:get("https://developer.edamam.com/edamam-recipe-api"),
+                            data: {
+                                username: req.body.username,
+                                name: req.body.name,
+                                email: req.body.email
+                            }
+                        })
+                            .then(function () {
+                                getPosts(postCategorySelect.val());
+                            });
+                    }
+                </script>
+            </div>
+
+            <footer>
+
+
+            </footer>
             <script>
-        // function to display recipes
-         $.get request for database
-                 (`
+                // function to display recipes
+                $.get request for database
+                    (`
                  <div class="bootstrap cards">
                  <h2>recipe name</h2>
                  <p></p>
@@ -137,13 +143,14 @@
                  `)
 
             </script>
-            
-        
-   
 
- 
 
-</section>
-    
+
+
+
+
+        </section>
+
 </body>
+
 </html>
