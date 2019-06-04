@@ -81,7 +81,7 @@
                   <div class="navbar-end">
                     <div class="navbar-item">
                       <div class="buttons">
-                        <a class="button is-warning is-inverted">
+                        <a class="button is-warning is-inverted" id="signUpLink">
                           <strong>Sign up</strong>
                         </a>
                         <a class="button is-light" id="logInLink" data-target="logInModal">
@@ -174,6 +174,33 @@
       </footer>
     </div>
   </div>
+
+  <div class="modal" id="signUpModal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Log In</p>
+        <button class="delete close-modal" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <form id="signUpForm">
+          <label class="" id="signUpUsernameLabel" for="signUpUsernameInput">Enter desired username: </label>
+          <input class="" id="signUpUsernameInput" required>
+          <br>
+          <label class="" id="signUpEmailLabel" for="signUpEmailInput">Enter email address: </label>
+          <input class="" id="signUpEmailInput" required>
+          <br>
+        <label class="" id="signUpNameLabel" for="signUpNameInput">Enter your name: </label>
+          <input class="" id="signUpNameInput" required>
+          <br>
+        </form>
+      </section>
+      <footer class="modal-card-foot">
+        <button type="submit" for="signUpForm" class="button is-success" id="signUpSubmitBtn">Log In</button>
+        <button class="button close-modal">Cancel</button>
+      </footer>
+    </div>
+  </div>
 <!--Footer-->
 <footer class="footer has-background-grey-darker">
         <div class="content has-text-centered">
@@ -198,9 +225,37 @@
   };
   });
 
+  $("#signUpLink").on("click", (e) => {
+    e.preventDefault();
+    $("#signUpModal").addClass("is-active");
+  });
+
+  $("#signUpSubmitBtn").on("click", (e) => {
+    function checkForm() {
+          let valid = true;
+          if (!$("#signUpUsernameInput") && !$("#signUpEmailInput") && !$("#signUpNameInput")) {
+            alert("Fill in all required fields please");
+            return (valid = false);
+          };
+          return valid;
+        };
+
+        if(checkForm()){
+          const newUser = {
+            username: $("#signUpUsernameInput").val().trim(),
+            name: $("#signUpNameInput").val().trim(),
+            email: $("#signUpEmailInput").val().trim()
+          }
+          $.post("api/newuser", newUser).then(data => {
+            console.log(data)
+          });
+        }
+  });
+
   $(".close-modal").on("click",(e) => {
     e.preventDefault();
     $("#logInModal").removeClass("is-active");
+    $("#signUpModal").removeClass("is-active");
   });
 
   $("#logInSubmitBtn").on("click", (e) => {
