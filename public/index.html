@@ -179,7 +179,7 @@
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">
-        <p class="modal-card-title">Log In</p>
+        <p class="modal-card-title">Sign Up</p>
         <button class="delete close-modal" aria-label="close"></button>
       </header>
       <section class="modal-card-body">
@@ -196,7 +196,7 @@
         </form>
       </section>
       <footer class="modal-card-foot">
-        <button type="submit" for="signUpForm" class="button is-success" id="signUpSubmitBtn">Log In</button>
+        <button type="submit" for="signUpForm" class="button is-success" id="signUpSubmitBtn">Create account</button>
         <button class="button close-modal">Cancel</button>
       </footer>
     </div>
@@ -248,6 +248,9 @@
           }
           $.post("api/newuser", newUser).then(data => {
             console.log(data)
+            $("#signUpUsernameInput").empty();
+            $("#signUpNameInput").empty();
+            $("#signUpEmailInput").empty();
           });
         }
   });
