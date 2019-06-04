@@ -33,8 +33,10 @@ try {
             method: "GET"
         }).then(function (response) {
             console.log("response: ",response);
-            for(i=0;i<response.hits.length;i++){
-            const recipe = response.hits[i].recipe;
+            const recipeResults = response;
+            window.location.replace("/results");
+            for(i=0;i<recipeResults.hits.length;i++){
+            const recipe = recipeResults.hits[i].recipe;
             const label = recipe.label;
             const image = recipe.image;
             const url = recipe.uri;
@@ -45,24 +47,22 @@ try {
             console.log("label: ", image);
             console.log("label: ", url);
             console.log("label: ", calories);
-
-
-            }
-            $("#resultsModal").addClass("is-active");
+            };
+            
         });
     
     });
 }
 
 catch(err) {
-    $("#resultsModal").append("Sorry Neighbor, no recipes matching your request was found...")
+    $("#resultsBox").append("Sorry Neighbor, no recipes matching your request was found...")
 }
 
 
 
 
 function recipeRender(image,label,calories,url) {
-        $("#resultsModal").append(`
+        $("#resultsBox").append(`
         <div class="card">
         <div class="card-image">
           <figure class="image is-128x128">
