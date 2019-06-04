@@ -184,14 +184,14 @@
       </header>
       <section class="modal-card-body">
         <form id="signUpForm">
-          <label class="" id="signUpUsernameLabel" for="signUpUsernameInput">Enter desired username: </label>
-          <input class="" id="signUpUsernameInput" required>
+          <label class="signup-label" id="signUpUsernameLabel" for="signUpUsernameInput">Enter desired username: </label>
+          <input class="input is-primary" id="signUpUsernameInput" required>
           <br>
-          <label class="" id="signUpEmailLabel" for="signUpEmailInput">Enter email address: </label>
-          <input class="" id="signUpEmailInput" required>
+          <label class="signup-label" id="signUpEmailLabel" for="signUpEmailInput">Enter email address: </label>
+          <input class="input is-primary" id="signUpEmailInput" required>
           <br>
-        <label class="" id="signUpNameLabel" for="signUpNameInput">Enter your name: </label>
-          <input class="" id="signUpNameInput" required>
+        <label class="signup-label" id="signUpNameLabel" for="signUpNameInput">Enter your name: </label>
+          <input class="input is-primary" id="signUpNameInput" required>
           <br>
         </form>
       </section>
@@ -247,10 +247,14 @@
             email: $("#signUpEmailInput").val().trim()
           }
           $.post("api/newuser", newUser).then(data => {
-            console.log(data)
-            $("#signUpUsernameInput").empty();
-            $("#signUpNameInput").empty();
-            $("#signUpEmailInput").empty();
+            console.log(data);
+            if(data){
+              localStorage.setItem("userId", data.id);
+              window.location.replace("/user");
+              $("#signUpUsernameInput").empty();
+              $("#signUpNameInput").empty();
+              $("#signUpEmailInput").empty();
+            }; 
           });
         }
   });
@@ -259,6 +263,7 @@
     e.preventDefault();
     $("#logInModal").removeClass("is-active");
     $("#signUpModal").removeClass("is-active");
+    
   });
 
   $("#logInSubmitBtn").on("click", (e) => {
