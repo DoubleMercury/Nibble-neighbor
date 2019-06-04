@@ -15,8 +15,6 @@ try {
     
         
         const queryParams = $.param({
-            "app_id" : "26abcd0f",
-            "app_key" : "448f552b9ad5ea4e801639160282843c",
             "q": protein,
             "diet": diet,
             "health":health,
@@ -24,32 +22,8 @@ try {
             "from":0,
             "to":6
         });
-    
-        const queryUrl="https://api.edamam.com/search?" + queryParams;
-        //q=" + protein + "&app_id=26abcd0f&app_key=448f552b9ad5ea4e801639160282843c&from=0&to=5&calories=" + calorie + "&diet=" + diet;
-    
-        $.ajax({
-            url: queryUrl,
-            method: "GET"
-        }).then(function (response) {
-            console.log("response: ",response);
-            const recipeResults = response;
-            window.location.replace("/results");
-            for(i=0;i<recipeResults.hits.length;i++){
-            const recipe = recipeResults.hits[i].recipe;
-            const label = recipe.label;
-            const image = recipe.image;
-            const url = recipe.uri;
-            const calories = recipe.calories;
-            recipeRender(image,label,calories,url);
-            console.log("recipes: ",recipe);
-            console.log("label: ", label);
-            console.log("label: ", image);
-            console.log("label: ", url);
-            console.log("label: ", calories);
-            };
-            
-        });
+        
+        window.location.replace("/results?" + queryParams);
     
     });
 }
@@ -73,7 +47,7 @@ function recipeRender(image,label,calories,url) {
                 <div class="media-content">
               <p class="title is-4">${label}</p>
               <p class="subtitle is-6">${calories}</p>
-              <p>${url}</p>
+              <p><a>${url}</a></p>
             </div>
           </div>
       
