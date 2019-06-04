@@ -20,9 +20,8 @@ module.exports = function(app) {
    res.sendFile(path.join(__dirname, "../public/search.html"));
   });
 
-  app.get("/:user", function(req, res) {
+  app.get("/user", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/user.html"));
-    var chosen = req.params.character;
   });
   // If no matching route is found default to home
   app.get("*", function(req, res) {
