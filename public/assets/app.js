@@ -1,4 +1,3 @@
-
 try {
     $("#submitBtn").on("click", function () {
         console.log("clicked");
@@ -53,7 +52,8 @@ function recipeRender(id, image, label, calories, url) {
       
           <div class="content has-addons">
             <div class="column">
-            <button class="button is-success is-fullwidth saveBtn" data-recipe-id="${id}">Save Recipe</button>
+
+            <button id="saveBtn${id}" class="button is-success is-fullwidth saveBtn" data-recipe-id="${id}">Save Recipe</button>
             </div>
             <br>
             <br>
@@ -87,10 +87,11 @@ $("#resultsBox").on("click", ".saveBtn", function (e) {
             }
         }).then(function(result){
             console.log(result);
+            $(`#saveBtn${recipeId}`).text("Saved");
+            $(`#saveBtn${recipeId}`).attr("disabled","true");
         })
     }
 })
-
 
 
 
