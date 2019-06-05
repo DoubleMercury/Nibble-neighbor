@@ -165,9 +165,9 @@
                         const recipe = recipeResults.hits[i].recipe;
                         const label = recipe.label;
                         const image = recipe.image;
-                        const url = recipe.uri;
-                        const calories = recipe.calories;
-                        recipeRender(image, label, calories, url);
+                        const url = recipe.url;
+                        const calories = recipe.calories.toFixed(2);
+                        recipeRender(i, image, label, calories, url);
                         console.log("recipes: ", recipe);
                         console.log("label: ", label);
                         console.log("label: ", image);
