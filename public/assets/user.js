@@ -26,7 +26,7 @@ function userPageRender() {
 
 function makeRecipeCard(recipe) {
 	$("#userMainContent").append(`
-<div class="column is-one-third is-inline-block">
+<div class="column is-one-fifth is-inline-block">
 <div class="card">
   <div class="card-image">
     <figure class="image is-4by3">
