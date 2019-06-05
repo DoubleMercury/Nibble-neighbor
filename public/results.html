@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,91 +10,129 @@
         .hero {
             background: url(assets/images/mcgriddles.jpg) center / cover;
         }
+
         .field {
             width: 100%;
-            
+
         }
+
         #bigHeader {
-          font-family: 'Caveat', cursive;
-          font-weight: bold;
+            font-family: 'Caveat', cursive;
+            font-weight: bold;
         }
+
         #titles {
-          font-family: 'Oswald', sans-serif;
+            font-family: 'Oswald', sans-serif;
         }
-        
-      </style>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-      <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-      <link href="https://fonts.googleapis.com/css?family=Caveat|Oswald&display=swap" rel="stylesheet">
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Oswald&display=swap" rel="stylesheet">
 </head>
+
 <body>
-        <nav class="navbar is-light is-size-2" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-                  <a class="navbar-item" href="https://bulma.io">
-                    <img src="assets/images/food-icon.jpg" width="100" height="28">
-                  </a>
-              
-                  <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                  </a>
-                </div>
-              
-                <div id="navbarBasicExample" class="navbar-menu">
-                  <div class="navbar-start">
-                    <a class="navbar-item" href="/index">
-                      Home
-                    </a>
-              
-                    <a class="navbar-item" href="/search">
-                      Recipe Search
-                    </a>
-              
-                    <div class="navbar-item has-dropdown is-hoverable">
-                      <a class="navbar-link">
+    <nav class="navbar is-light is-size-2" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+                <img src="assets/images/food-icon.jpg" width="100" height="28">
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/index">
+                    Home
+                </a>
+
+                <a class="navbar-item" href="/search">
+                    Recipe Search
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
                         More
-                      </a>
-              
-                      <div class="navbar-dropdown">
+                    </a>
+
+                    <div class="navbar-dropdown">
                         <a class="navbar-item">
-                          About
+                            About
                         </a>
                         <a class="navbar-item" href="/user">
-                          User Profile
+                            User Profile
                         </a>
                         <a class="navbar-item">
-                          Contact
+                            Contact
                         </a>
                         <hr class="navbar-divider">
                         <a class="navbar-item">
-                          Report an issue
+                            Report an issue
                         </a>
-                      </div>
                     </div>
-                  </div>
-              
-                  <div class="navbar-end">
-                    <div class="navbar-item">
-                      <div class="buttons">
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
                         <a class="button is-warning is-inverted">
-                          <strong>Sign up</strong>
+                            <strong>Sign up</strong>
                         </a>
                         <a class="button is-link">
-                          Log in
+                            Log in
                         </a>
-                      </div>
                     </div>
-                  </div>
                 </div>
-              </nav>
+            </div>
+        </div>
+    </nav>
     <section class="hero is-fullheight">
+
         <div class="container">
-            <div class="box">
+            <div id="resultsBox" class="box">
 
             </div>
         </div>
-</section>    
+    </section>
+    <script src="../assets/app.js"></script>
+    <script>
+        $(document).ready(function () {
+            const queryString = window.location.search;
+
+            if (queryString) {
+                const queryUrl = "https://api.edamam.com/search" + queryString + "&app_id=26abcd0f&app_key=448f552b9ad5ea4e801639160282843c";
+
+                $.ajax({
+                    url: queryUrl,
+                    method: "GET"
+                }).then(function (response) {
+                    console.log("response: ", response);
+                    const recipeResults = response;
+                    for (i = 0; i < recipeResults.hits.length; i++) {
+                        const recipe = recipeResults.hits[i].recipe;
+                        const label = recipe.label;
+                        const image = recipe.image;
+                        const url = recipe.uri;
+                        const calories = recipe.calories;
+                        recipeRender(image, label, calories, url);
+                        console.log("recipes: ", recipe);
+                        console.log("label: ", label);
+                        console.log("label: ", image);
+                        console.log("label: ", url);
+                        console.log("label: ", calories);
+                    };
+
+                });
+            }
+        });
+    </script>
 </body>
+
 </html>
