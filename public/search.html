@@ -80,10 +80,10 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <a class="button is-warning is-inverted">
+                <a class="button is-warning is-inverted" id="signUpLink">
                   <strong>Sign up</strong>
                 </a>
-                <a class="button is-link">
+                <a class="button is-link" id="logInLink">
                   Log in
                 </a>
               </div>
@@ -209,17 +209,63 @@
     </div>      
     
    
-          <br>
-    <!--Button to Get Recipes-->
-         <div class="has-text-centered">
-           <a id="submitBtn" class="button is-large is-success is-rounded">
-             <span class="icon">
-              <i class="fas fa-utensils"></i>
-             </span>
-             <span>Get My Recipe!</span>
-           </a>
-         </div>
-         <br>
+      <br>
+<!--Button to Get Recipes-->
+     <div class="has-text-centered">
+       <a id="submitBtn" class="button is-large is-success is-rounded">
+         <span class="icon">
+          <i class="fas fa-utensils"></i>
+         </span>
+         <span>Get My Recipe!</span>
+       </a>
+     </div>
+     <br>
+     <div class="modal" id="logInModal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Log In</p>
+          <button class="delete close-modal" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <form id="logInForm">
+          <label class="" id="logInInputLabel" for="logInInput">Enter email address: </label>
+            <input class="" id="logInInput" required>
+          </form>
+        </section>
+        <footer class="modal-card-foot">
+          <button type="submit" for="logInForm" class="button is-success" id="logInSubmitBtn">Log In</button>
+          <button class="button close-modal">Cancel</button>
+        </footer>
+      </div>
+    </div>
+  
+    <div class="modal" id="signUpModal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Sign Up</p>
+          <button class="delete close-modal" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <form id="signUpForm">
+            <label class="signup-label" id="signUpUsernameLabel" for="signUpUsernameInput">Enter desired username: </label>
+            <input class="input is-primary" id="signUpUsernameInput" required>
+            <br>
+            <label class="signup-label" id="signUpEmailLabel" for="signUpEmailInput">Enter email address: </label>
+            <input class="input is-primary" id="signUpEmailInput" required>
+            <br>
+          <label class="signup-label" id="signUpNameLabel" for="signUpNameInput">Enter your name: </label>
+            <input class="input is-primary" id="signUpNameInput" required>
+            <br>
+          </form>
+        </section>
+        <footer class="modal-card-foot">
+          <button type="submit" for="signUpForm" class="button is-success" id="signUpSubmitBtn">Create account</button>
+          <button class="button close-modal">Cancel</button>
+        </footer>
+      </div>
+    </div>
 
           <!--Footer-->
     <footer class="footer has-background-grey-darker">
@@ -237,5 +283,7 @@
   
   </section>
   <script src="../assets/app.js"></script>
+<script src="javascript/btns.js"></script>
+
   </body>
 </html>
