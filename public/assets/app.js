@@ -52,6 +52,7 @@ function recipeRender(id, image, label, calories, url) {
       
           <div class="content has-addons">
             <div class="column">
+
             <button id="saveBtn${id}" class="button is-success is-fullwidth saveBtn" data-recipe-id="${id}">Save Recipe</button>
             </div>
             <br>
