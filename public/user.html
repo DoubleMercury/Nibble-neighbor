@@ -1,22 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <style>
-         .hero {
-          background: url(assets/images/bread.jpg) center / cover;
-      }
-      .field {
-          width: 100%;
-    
-      }
-      #bigHeader {
-        font-family: 'Caveat', cursive;
-        font-weight: bold;
-      }
-      #titles {
-        font-family: 'Oswald', sans-serif;
-      }
-    </style>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -25,44 +11,106 @@
     <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Caveat|Oswald&display=swap" rel="stylesheet">
-    
+
+    <style>
+        #background-hero {
+            background: url(assets/images/bread.jpg) center / cover;
+        }
+
+        .field {
+            width: 100%;
+
+        }
+
+        #bigHeader {
+            font-family: 'Caveat', cursive;
+            font-weight: bold;
+        }
+
+        #titles {
+            font-family: 'Oswald', sans-serif;
+        }
+    </style>
 </head>
+
 <body>
-   <section class = "hero is-fullheight">
-        <nav>
+    <nav class="navbar is-light is-size-2" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+                <img src="assets/images/food-icon.jpg" width="100" height="28">
+            </a>
 
-            </nav>
-            <div class="header">
-        <!-- <h1>${user's name displayed here}' saved recipe's page</h1> -->
-                
-            </div>
-        
-        <div class="main-content">
-            <!-- rendered recipes -->
-            
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
-        
-        <footer>
-        
-        
-        </footer>
-            <script>
-        // function to display recipes
-        // $.get request for database
-                // (`
-                // <div class="bootstrap cards">
-                // <h2>recipe name</h2>
-                // <p></p>
-                // </div>
-                // `)
-            </script>
-            
-        
-   
 
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="./public/index.html">
+                    Home
+                </a>
+
+                <a class="navbar-item" href="./public/search.html">
+                    Recipe Search
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        More
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                            About
+                        </a>
+                        <a class="navbar-item" href="./public/user.html">
+                            User Profile
+                        </a>
+                        <a class="navbar-item">
+                            Contact
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">
+                            Report an issue
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-warning is-inverted">
+                            <strong>Sign out</strong>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="hero is-fullheight" id="background-hero">
+
+        <div class="hero is-dark" id="userPageHeader">
+
+        </div>
+
+        <div class="main-content" id="userMainContent">
+            <!-- rendered recipes -->
+
+        </div>
+
+        <footer>
+
+        </footer>
  
 
-</section>
-    
+    </section>
+
 </body>
+<script src="/assets/user.js"></script>
 </html>
