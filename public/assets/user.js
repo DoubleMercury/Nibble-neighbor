@@ -2,15 +2,9 @@ const userID = localStorage.getItem("userId");
 
 
 function userPageRender() {
-    $.get(`/api/users/${userID}`).then(function(user){
-        // const heroBody = $(`<div class = hero-body>`).appendTo($("#userPageHeader"));
-        // heroBody.append(`<h1 class="heading userInfo title is-size-3 is-block" >${user.username}</1>`);
+	$.get(`/api/users/${userID}`).then(function (user) {
 
-        // heroBody.append(`<h2 class="heading userInfo subtitle is-size-4 is-block" >${user.name}</h2>`);
-
-        // heroBody.append(`<h2 class="heading userInfo subtitle is-size-4 is-inline-block" >${user.email}</h2>`);
-
-        $("#userPageHeader").append(`<div class="hero-body">
+		$("#userPageHeader").append(`<div class="hero-body">
         <div class="container">
           <h1 class="title">
           ${user.username}
@@ -24,14 +18,14 @@ function userPageRender() {
         </div>
       </div>`)
 
-    })
+	})
 
-    
+
 
 }
 
-function makeRecipeCard(recipe){
-$("#userMainContent").append(`
+function makeRecipeCard(recipe) {
+	$("#userMainContent").append(`
 <div class="column is-one-third is-inline-block">
 <div class="card">
   <div class="card-image">
@@ -49,7 +43,7 @@ $("#userMainContent").append(`
     </div>
     <footer class="card-footer">
     <a href="${recipe.url}" class="card-footer-item">View</a>
-    <button class="card-footer-item delete-button">Delete</Delete>
+    <a class="card-footer-item delete-button" data-recipeId = "${recipe.id}">Delete</a>
   </footer>
 </div>
 </div>
@@ -57,12 +51,24 @@ $("#userMainContent").append(`
 }
 
 function renderRecipes() {
-    $.get(`/api/users/recipes/${userID}`).then(function(recipes){
-        recipes.forEach(recipe => {
-            makeRecipeCard(recipe);
-        });
-    });
+	$.get(`/api/users/recipes/${userID}`).then(function (recipes) {
+		recipes.forEach(recipe => {
+			makeRecipeCard(recipe);
+		});
+	});
 }
+
+$("#userMainContent").on("click", ".delete-button", function(){
+	const recipeId = $(this).attr("data-recipeId");
+
+	$.ajax({
+		method: "DELETE",
+		url: "/api/users/recipes/"+ recipeId
+	}).then(function(){
+		$("#userMainContent").empty();
+		renderRecipes();
+	})
+});
 
 userPageRender();
 renderRecipes();
