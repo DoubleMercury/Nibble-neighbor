@@ -46,11 +46,11 @@
       
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item" href="./public/index.html">
+            <a class="navbar-item" href="/index">
               Home
             </a>
       
-            <a class="navbar-item" href="./public/search.html">
+            <a class="navbar-item" href="/search">
               Recipe Search
             </a>
       
@@ -63,7 +63,7 @@
                 <a class="navbar-item">
                   About
                 </a>
-                <a class="navbar-item" href="./public/user.html">
+                <a class="navbar-item" href="/user">
                   User Profile
                 </a>
                 <a class="navbar-item">
@@ -80,10 +80,10 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <a class="button is-warning is-inverted">
+                <a class="button is-warning is-inverted" id="signUpLink">
                   <strong>Sign up</strong>
                 </a>
-                <a class="button is-link">
+                <a class="button is-link" id="logInLink">
                   Log in
                 </a>
               </div>
@@ -103,7 +103,7 @@
                 <div class="control">
                   <div class="select is-large">
                     <select id="protein_id" name="protein">
-                      <option value="">Protein</option>
+                      <option value="chicken">Protein</option>
                       <option value="chicken">Chicken</option>
                       <option value="beef">Beef</option>
                       <option value="pork">Pork</option>
@@ -123,7 +123,7 @@
                 <div class="control">
                   <div class="select is-large">
                     <select id="diet_id" name="diet">
-                      <option value="">Any Diet</option>
+                      <option value="balanced">Any Diet</option>
                       <option value="balanced">Balanced</option>
                       <option value="high-protein">High-Protein</option>
                       <option value="high-fiber">High-Fiber</option>
@@ -144,9 +144,11 @@
                 <div class="control">
                   <div class="select is-large">
                     <select id="health_id" name="health">
-                      <option value="">None</option>
+                      <option value="Kosher">None</option>
                       <option value="vegan">Vegan</option>
+                      <option value="kosher">Kosher</option>
                       <option value="vegetarian">Vegetarian</option>
+                      <option value="pescatarian">Pescatarian</option>
                       <option value="paleo">Paleo</option>
                       <option value="dairy-free">Dairy Free</option>
                       <option value="gluten-free">Gluten Free</option>
@@ -158,6 +160,7 @@
                       <option value="tree-nut-free">Tree Nut Free</option>
                       <option value="soy-free">Soy Free</option>
                       <option value="fish-free">Fish Free</option>
+                      <option value="pork-free">Pork Free</option>
                       <option value="shellfish-free">Shellfish Free</option>
                     </select>
                   </div>
@@ -204,25 +207,65 @@
         </div>
       </div>
     </div>      
-    <!-- Modal element-->
-    <div class="modal">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-              <!-- Any other Bulma elements you want -->
-            </div>
-            <button class="modal-close is-large" aria-label="close"></button>
-          </div>
-          <br>
-    <!--Button to Get Recipes-->
-         <div class="has-text-centered">
-           <a id="submitBtn" class="button is-large is-success is-rounded">
-             <span class="icon">
-              <i class="fas fa-utensils"></i>
-             </span>
-             <span>Get My Recipe!</span>
-           </a>
-         </div>
-         <br>
+    
+   
+      <br>
+<!--Button to Get Recipes-->
+     <div class="has-text-centered">
+       <a id="submitBtn" class="button is-large is-success is-rounded">
+         <span class="icon">
+          <i class="fas fa-utensils"></i>
+         </span>
+         <span>Get My Recipe!</span>
+       </a>
+     </div>
+     <br>
+     <div class="modal" id="logInModal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Log In</p>
+          <button class="delete close-modal" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <form id="logInForm">
+          <label class="" id="logInInputLabel" for="logInInput">Enter email address: </label>
+            <input class="" id="logInInput" required>
+          </form>
+        </section>
+        <footer class="modal-card-foot">
+          <button type="submit" for="logInForm" class="button is-success" id="logInSubmitBtn">Log In</button>
+          <button class="button close-modal">Cancel</button>
+        </footer>
+      </div>
+    </div>
+  
+    <div class="modal" id="signUpModal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Sign Up</p>
+          <button class="delete close-modal" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <form id="signUpForm">
+            <label class="signup-label" id="signUpUsernameLabel" for="signUpUsernameInput">Enter desired username: </label>
+            <input class="input is-primary" id="signUpUsernameInput" required>
+            <br>
+            <label class="signup-label" id="signUpEmailLabel" for="signUpEmailInput">Enter email address: </label>
+            <input class="input is-primary" id="signUpEmailInput" required>
+            <br>
+          <label class="signup-label" id="signUpNameLabel" for="signUpNameInput">Enter your name: </label>
+            <input class="input is-primary" id="signUpNameInput" required>
+            <br>
+          </form>
+        </section>
+        <footer class="modal-card-foot">
+          <button type="submit" for="signUpForm" class="button is-success" id="signUpSubmitBtn">Create account</button>
+          <button class="button close-modal">Cancel</button>
+        </footer>
+      </div>
+    </div>
 
           <!--Footer-->
     <footer class="footer has-background-grey-darker">
@@ -239,6 +282,8 @@
     
   
   </section>
-  <script src="../public/assets/app.js"></script>
+  <script src="../assets/app.js"></script>
+<script src="javascript/btns.js"></script>
+
   </body>
 </html>
