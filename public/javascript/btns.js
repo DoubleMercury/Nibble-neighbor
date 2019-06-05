@@ -66,3 +66,9 @@ $("#logInLink").on("click", (e) => {
       console.log(isUser);
     });
   });
+
+  $("#signOutBtn").on("click", (e)=> {
+    e.preventDefault();
+    localStorage.clear();
+    window.location.replace("/");
+  });
