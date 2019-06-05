@@ -72,3 +72,10 @@ $("#logInLink").on("click", (e) => {
     localStorage.clear();
     window.location.replace("/");
   });
+
+  $(document).ready(()=> {
+    console.log("document ready");
+  if(localStorage.userId){
+    $("#logInLink").hide();
+  };
+});

@@ -180,6 +180,15 @@
         });
     </script>
 <script src="javascript/btns.js"></script>
+<script>
+  $(document).ready(()=> {
+    if(localStorage){
+      $("#logInBtn").hide();
+      $("#signUpLink").attr("id", "signOutLink");
+      $("#signUpLink").remove("signUpLink");
+    };
+  });
+</script>
 </body>
 
 </html>
