@@ -43,17 +43,19 @@ function recipeRender(id, image, label, calories, url) {
             <img src="${image}" alt="image">
           </figure>
         </div>
-        <div class="card-content">
+        <div class="card-content has-addons">
                 <div class="media-content">
               <p class="title is-4">${label}</p>
               <p class="subtitle is-6" data-calories="${calories}">Calories: ${calories}</p>
-              <p class="url" data-url="${url}"><a>Link to Recipe: ${url}</a></p>
+              <p class="url is-size-3" data-url="${url}"><a href="${url}">Link to Recipe</a></p>
             </div>
           </div>
       
-          <div class="content">
-            
-            <button class="button saveBtn" data-recipe-id="${id}">Save Recipe</button>
+          <div class="content has-addons">
+            <div class="column">
+            <button class="button is-success is-fullwidth saveBtn" data-recipe-id="${id}">Save Recipe</button>
+            </div>
+            <br>
             <br>
           </div>
         </div>
