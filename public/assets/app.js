@@ -16,8 +16,8 @@ try {
         const queryParams = $.param({
             "q": protein,
             "diet": diet,
-            "health": health,
-            "calorie": calorie,
+            //"health": health,
+            "calories": calorie,
             "from": 0,
             "to": 6
         });
@@ -46,12 +46,13 @@ function recipeRender(id, image, label, calories, url) {
                 <div class="media-content">
               <p class="title is-4">${label}</p>
               <p class="subtitle is-6" data-calories="${calories}">Calories: ${calories}</p>
-              <p class="url is-size-3" data-url="${url}"><a href="${url}">Link to Recipe</a></p>
+              <p class="url is-size-3" data-url="${url}"><a href="${url}" target="_blank">Link to Recipe</a></p>
             </div>
           </div>
       
           <div class="content has-addons">
             <div class="column">
+
             <button id="saveBtn${id}" class="button is-success is-fullwidth saveBtn" data-recipe-id="${id}">Save Recipe</button>
             </div>
             <br>
@@ -63,8 +64,10 @@ function recipeRender(id, image, label, calories, url) {
 }
 
 $("#resultsBox").on("click", ".saveBtn", function (e) {
-    const userId = localStorage.getItem("userId");
 
+    console.log("clicked saveBtn")
+    if(localStorage.userId) {
+      const userId = localStorage.getItem("userId");
     if (userId) {
         const recipeId = $(this).attr("data-recipe-id");
         const recipe = $(`#recipe-${recipeId}`);
@@ -90,6 +93,9 @@ $("#resultsBox").on("click", ".saveBtn", function (e) {
             $(`#saveBtn${recipeId}`).attr("disabled","true");
         })
     }
+    } else {
+    $("#notLoggedInModal").addClass("is-active");
+  }
 })
 
 
