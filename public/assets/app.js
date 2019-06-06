@@ -64,14 +64,10 @@ function recipeRender(id, image, label, calories, url) {
 }
 
 $("#resultsBox").on("click", ".saveBtn", function (e) {
-    $(".saveBtn").on("click", (e)=>{
-    console.log("clicked saveBtn")
-    if(!localStorage.userid) {
-      $("#notLoggedInModal").addClass("is-active");
-    };
-    });
-    const userId = localStorage.getItem("userId");
 
+    console.log("clicked saveBtn")
+    if(localStorage.userId) {
+      const userId = localStorage.getItem("userId");
     if (userId) {
         const recipeId = $(this).attr("data-recipe-id");
         const recipe = $(`#recipe-${recipeId}`);
@@ -97,6 +93,9 @@ $("#resultsBox").on("click", ".saveBtn", function (e) {
             $(`#saveBtn${recipeId}`).attr("disabled","true");
         })
     }
+    } else {
+    $("#notLoggedInModal").addClass("is-active");
+  }
 })
 
 

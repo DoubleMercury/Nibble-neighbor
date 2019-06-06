@@ -16,13 +16,9 @@ function userPageRender() {
           ${user.email}
           </h2>
         </div>
-      </div>`)
-
-	})
-
-
-
-}
+      </div>`);
+	});
+};
 
 function makeRecipeCard(recipe) {
 	$("#userMainContent").append(`
@@ -42,7 +38,7 @@ function makeRecipeCard(recipe) {
          </div>
     </div>
     <footer class="card-footer">
-    <a href="${recipe.url}" class="card-footer-item">View</a>
+    <a href="${recipe.url}" class="card-footer-item" target="_blank">View</a>
     <a class="card-footer-item delete-button" data-recipeId = "${recipe.id}">Delete</a>
   </footer>
 </div>
