@@ -16,7 +16,7 @@ try {
         const queryParams = $.param({
             "q": protein,
             "diet": diet,
-            // "health": health,
+            //"health": health,
             "calories": calorie,
             "from": 0,
             "to": 6
