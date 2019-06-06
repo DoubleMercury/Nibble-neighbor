@@ -32,7 +32,7 @@
 </head>
 
 <body>
-    <nav class="navbar is-light is-size-2" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-success is-size-2" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="https://bulma.io">
                 <img src="assets/images/food-icon.jpg" width="100" height="28">
@@ -88,6 +88,10 @@
                         <a class="button is-link" id="logInLink">
                             Log in
                         </a>
+                    </a>
+                    <a class="button is-warning is-inverted" id="signOutBtn" hidden>
+                      <strong>Sign out</strong>
+                    </a>
                     </div>
                 </div>
             </div>
@@ -146,10 +150,29 @@
             </footer>
           </div>
         </div>
+
+        <div class="modal" id="notLoggedInModal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title"><strong>Hold Up a Sec!</strong></p>
+                <button class="delete close-modal" aria-label="close"></button>
+              </header>
+              <section class="modal-card-body">
+                <p>If you would like to save a recipe, make sure to either make an account or log into an existing one.</p>
+              </section>
+              <footer class="modal-card-foot">
+                <!-- <a class="button is-link pulse" id="logInLink">Log In</a>
+                <a class="button is-link pulse" id="signUpLink">Sign Up</a> -->
+                <button class="button close-modal">OK</button>
+              </footer>
+            </div>
+        </div>
     </section>
     <script src="../assets/app.js"></script>
     <script>
         $(document).ready(function () {
+
             const queryString = window.location.search;
 
             if (queryString) {

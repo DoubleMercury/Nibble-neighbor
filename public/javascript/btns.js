@@ -2,13 +2,16 @@ $("#logInLink").on("click", (e) => {
     e.preventDefault();
     if(localStorage.getItem("userId")){
      window.location.replace("/user"); 
-    }
-    else { $("#logInModal").addClass("is-active");
+
+    } else { 
+      $("#notLoggedInModal").removeClass("is-active");
+      $("#logInModal").addClass("is-active");
   };
   });
 
   $("#signUpLink").on("click", (e) => {
     e.preventDefault();
+    $("#notLoggedInModal").removeClass("is-active");
     $("#signUpModal").addClass("is-active");
   });
 
@@ -32,7 +35,7 @@ $("#logInLink").on("click", (e) => {
             console.log(data);
             if(data){
               localStorage.setItem("userId", data.id);
-              window.location.replace("/user");
+              location.reload();
               $("#signUpUsernameInput").empty();
               $("#signUpNameInput").empty();
               $("#signUpEmailInput").empty();
@@ -45,7 +48,7 @@ $("#logInLink").on("click", (e) => {
     e.preventDefault();
     $("#logInModal").removeClass("is-active");
     $("#signUpModal").removeClass("is-active");
-    
+    $("#notLoggedInModal").removeClass("is-active");
   });
 
   $("#logInSubmitBtn").on("click", (e) => {
@@ -60,7 +63,11 @@ $("#logInLink").on("click", (e) => {
         if(user.email === currentUser) {
           isUser = true;
           localStorage.setItem("userId", user.id);
-          window.location.replace("/user");
+          if(window.location.pathname==="/"){
+            window.location.replace("/user");
+          }else{
+          location.reload();
+          }
         };
       });
       console.log(isUser);
@@ -68,7 +75,22 @@ $("#logInLink").on("click", (e) => {
   });
 
   $("#signOutBtn").on("click", (e)=> {
-    e.preventDefault();
+    // e.preventDefault();
     localStorage.clear();
+    location.reload();
+    if(window.location.pathname==="/user"){
     window.location.replace("/");
+    }
   });
+
+  $(document).ready(()=> {
+    console.log("document ready");
+  if(localStorage.userId){
+    $("#logInLink").hide();
+    $("#signUpLink").hide();
+  } else {
+    $("#signOutBtn").hide();
+  }
+});
+
+
